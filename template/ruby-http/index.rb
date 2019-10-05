@@ -10,6 +10,19 @@ set :port, 5000
 
 handler = Handler.new
 
+options '/*' do
+  [
+    204,
+    {
+      'Allow' => 'POST, GET, OPTIONS',
+      'Access-Control-Allow-Methods' => 'POST, GET, OPTIONS',
+      'Access-Control-Allow-Origin' => '*',
+      'Access-Control-Allow-Headers' => 'X-Auth-Token, Content-Type'
+    },
+    []
+  ]
+end
+
 get '/*' do
   body, headers = handler.run(request.body, request.env)
 
