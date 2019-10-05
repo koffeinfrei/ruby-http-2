@@ -1,10 +1,10 @@
-## ruby-http
+## ruby-http-2
 
 ### Usage:
 
 ```
 faas template pull
-faas new --lang ruby-http homepage
+faas new --lang ruby-http-2 homepage
 ```
 
 #### Example:

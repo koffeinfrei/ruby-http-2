@@ -11,29 +11,25 @@ set :port, 5000
 handler = Handler.new
 
 get '/*' do
-  res, res_headers = handler.run request.body, request.env
+  body, headers = handler.run(request.body, request.env)
 
-  headers = res_headers
-
-  return res
+  [200, headers, body]
 end
 
 post '/*' do
-    res, res_headers = handler.run request.body, request.env
-    headers = res_headers
-    return res
+  body, headers = handler.run(request.body, request.env)
+
+  [200, headers, body]
 end
 
 put '/*' do
-    res, res_headers = handler.run request.body, request.env
-    headers = res_headers
+  body, headers = handler.run(request.body, request.env)
 
-    return res
+  [200, headers, body]
 end
 
 delete '/*' do
-    res, res_headers = handler.run request.body, request.env
-    headers = res_headers
+  body, headers = handler.run(request.body, request.env)
 
-    return res
+  [200, headers, body]
 end
